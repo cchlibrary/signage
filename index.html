@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <!-- 0 秒後自動轉址到 GAS -->
-  <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbx9avEoS7xAf_9RD2YsA1HhHoEdZSCLWgj2TcTc1cOxy4h6MtVe_nAqJcHzZRddwOE/exec">
-
-  <!-- 👇 1. 在這裡加入/修改 GitHub 頁面的 Title -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>每日活動告示板</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #121212;
+    }
+
+    /* 裁切容器：鎖定畫面大小並隱藏超出部分 */
+    .iframe-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* 將 iframe 向上平移 37px，把頂部藍色提示條推到畫面外 */
+    .iframe-container iframe {
+      position: absolute;
+      top: -37px; /* 向上偏移藍色 Banner 的高度 */
+      left: 0;
+      width: 100%;
+      height: calc(100% + 37px); /* 補足被推掉的高度 */
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <p>正在前往應用程式，若沒有自動跳轉，請<a href="https://script.google.com/macros/s/AKfycbx9avEoS7xAf_9RD2YsA1HhHoEdZSCLWgj2TcTc1cOxy4h6MtVe_nAqJcHzZRddwOE/exec">點擊這裡</a>。</p>
+
+  <div class="iframe-container">
+    <!-- 請將下面的 src 換成你的 GAS Web App 網址 -->
+    <iframe src="https://script.google.com/macros/s/你的網址/exec" allowfullscreen></iframe>
+  </div>
+
 </body>
 </html>
