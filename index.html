@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>每日活動告示板</title>
   <style>
-    html, body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background-color: #121212;
+      background-color: #121212; /* 防止載入時出現白閃光 */
     }
 
-    /* 裁切容器：鎖定畫面大小並隱藏超出部分 */
-    .iframe-container {
+    /* 全螢幕裁切容器 */
+    .wrapper {
       position: relative;
       width: 100vw;
       height: 100vh;
       overflow: hidden;
     }
 
-    /* 將 iframe 向上平移 37px，把頂部藍色提示條推到畫面外 */
-    .iframe-container iframe {
+    /* 將 iframe 向上平移 32px 遮擋藍色橫幅，並補足底部高度 */
+    .wrapper iframe {
       position: absolute;
-      top: -37px; /* 向上偏移藍色 Banner 的高度 */
+      top: -32px;
       left: 0;
       width: 100%;
-      height: calc(100% + 37px); /* 補足被推掉的高度 */
+      height: calc(100% + 32px);
       border: none;
     }
   </style>
 </head>
 <body>
 
-  <div class="iframe-container">
-    <!-- 請將下面的 src 換成你的 GAS Web App 網址 -->
-    <iframe src="https://script.google.com/macros/s/你的網址/exec" allowfullscreen></iframe>
+  <div class="wrapper">
+    <iframe src="https://script.google.com/macros/s/AKfycbx9avEoS7xAf_9RD2YsA1HhHoEdZSCLWgj2TcTc1cOxy4h6MtVe_nAqJcHzZRddwOE/exec" allowfullscreen></iframe>
   </div>
 
 </body>
